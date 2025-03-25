@@ -15,27 +15,93 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="assets/css/fontawesome.min.css">
-    
+
     <style>
-        #tawkChatContainer {
-            width: 100%;
-            max-width: 800px;
-            height: 600px;
-            margin: 50px auto;
+        /* Chat Widget Styles */
+        #chatBox {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 350px;
+            height: 450px;
+            background-color: #f8f9fa;
             border: 1px solid #ddd;
             border-radius: 10px;
-            overflow: hidden;
-            background-color: #f8f9fa;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            display: none; /* Hidden initially */
+            flex-direction: column;
             display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
-        #tawkIframe {
-            width: 100%;
-            height: 100%;
-            border: none;
+        #chatHeader {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            font-weight: bold;
+            border-radius: 10px 10px 0 0;
+            cursor: pointer;
+            text-align: center;
         }
+
+        #chatBody {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+            background-color: #fff;
+        }
+
+        #chatInput {
+            padding: 10px;
+            border-top: 1px solid #ddd;
+            display: flex;
+        }
+
+        #chatInput input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        #chatInput button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+
+        #chatInput button:hover {
+            background-color: #0056b3;
+        }
+
+        #chatMessages {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .userMessage {
+            align-self: flex-end;
+            background-color: #007bff;
+            color: white;
+            padding: 8px;
+            border-radius: 10px;
+            margin: 5px 0;
+            max-width: 80%;
+        }
+
+        .supportMessage {
+            align-self: flex-start;
+            background-color: #f1f1f1;
+            color: black;
+            padding: 8px;
+            border-radius: 10px;
+            margin: 5px 0;
+            max-width: 80%;
+        }
+
     </style>
 </head>
 
@@ -62,19 +128,18 @@
     </nav>
     <!-- End Header -->
 
-    <!-- Chat Section -->
-    <div class="container text-center py-5">
-        <h2>Live Chat Support</h2>
-        <p>Our team is ready to assist you. Start a conversation below.</p>
-
-        <!-- Tawk.to Live Chat Embed -->
-        <div id="tawkChatContainer">
-            <!-- Embed Tawk.to Chat Widget -->
-            <div id="tawkChatWidget"></div>
+    <!-- Start Chat Widget -->
+    <div id="chatBox">
+        <div id="chatHeader" onclick="toggleChat()">Chat with Us</div>
+        <div id="chatBody">
+            <div id="chatMessages"></div>
         </div>
-
+        <div id="chatInput">
+            <input type="text" id="userMessage" placeholder="Type your message here...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
     </div>
-    <!-- End Chat Section -->
+    <!-- End Chat Widget -->
 
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-3 mt-5">
@@ -89,17 +154,40 @@
     <script src="assets/js/templatemo.js"></script>
     <script src="assets/js/custom.js"></script>
 
-    <!-- Tawk.to Live Chat Script -->
-    <script type="text/javascript">
-        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-        (function () {
-            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-            s1.async = true;
-            s1.src = 'https://embed.tawk.to/67e2e5249418aa1911a01afb/default';
-            s1.charset = 'UTF-8';
-            s1.setAttribute('crossorigin', '*');
-            s0.parentNode.insertBefore(s1, s0);
-        })();
+    <!-- Chat Widget JavaScript -->
+    <script>
+        // Toggle chat visibility
+        function toggleChat() {
+            var chatBox = document.getElementById("chatBox");
+            chatBox.style.display = (chatBox.style.display === "none" || chatBox.style.display === "") ? "flex" : "none";
+        }
+
+        // Send message function
+        function sendMessage() {
+            var messageInput = document.getElementById("userMessage");
+            var messageText = messageInput.value.trim();
+            if (messageText !== "") {
+                // Append user's message to chat
+                var messageDiv = document.createElement("div");
+                messageDiv.className = "userMessage";
+                messageDiv.textContent = messageText;
+                document.getElementById("chatMessages").appendChild(messageDiv);
+
+                // Simulate a response from support
+                setTimeout(function () {
+                    var supportMessageDiv = document.createElement("div");
+                    supportMessageDiv.className = "supportMessage";
+                    supportMessageDiv.textContent = "Support: We'll get back to you soon!";
+                    document.getElementById("chatMessages").appendChild(supportMessageDiv);
+                    document.getElementById("chatBody").scrollTop = document.getElementById("chatBody").scrollHeight;  // Scroll to latest message
+                }, 1000);
+
+                // Clear the input field
+                messageInput.value = "";
+                document.getElementById("chatBody").scrollTop = document.getElementById("chatBody").scrollHeight;  // Scroll to latest message
+            }
+        }
+
     </script>
 </body>
 
