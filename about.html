@@ -1,73 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to YMStore</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>YM Flowers - About Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/templatemo.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #2b5876, #4e4376);
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
+            background: linear-gradient(135deg, #f8f9fa, #e3f2fd);
+            font-family: 'Roboto', sans-serif;
         }
-        .container {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            max-width: 600px;
+        
+        .navbar {
+            background: rgba(255, 255, 255, 0.9) !important;
             backdrop-filter: blur(10px);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #ff6b81, #ff8a00);
+            color: white;
+            padding: 60px 0;
             animation: fadeIn 1s ease-in-out;
         }
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        p {
-            font-size: 1.2em;
-            margin-bottom: 20px;
-        }
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 1.2em;
-            color: white;
-            background: #ff7b00;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: 0.3s ease-in-out;
-        }
-        .btn:hover {
-            background: #e66a00;
-            transform: scale(1.05);
-        }
+
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .services-icon-wap {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .services-icon-wap:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>Welcome to YMStore</h1>
-        <p>Discover the best products, tailored for you.</p>
-        <a href="store.html" class="btn">Enter Store</a>
-    </div>
+    <nav class="navbar navbar-expand-lg navbar-light shadow">
+        <div class="container">
+            <a class="navbar-brand text-success logo h1" href="index.html">YM Flowers</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1>About Us</h1>
+            <p>Providing the best quality THC products with 100% authenticity and excellence.</p>
+        </div>
+    </section>
+
+    <section class="container py-5">
+        <div class="row text-center pt-5 pb-3">
+            <div class="col-lg-6 m-auto">
+                <h1 class="h1">Our Services</h1>
+                <p>Fast delivery, easy returns, exclusive deals, and 24/7 support.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-3 pb-5">
+                <div class="h-100 py-5 services-icon-wap shadow text-center">
+                    <i class="fa fa-truck fa-3x text-success"></i>
+                    <h2 class="h5 mt-4">Delivery Services</h2>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 pb-5">
+                <div class="h-100 py-5 services-icon-wap shadow text-center">
+                    <i class="fas fa-exchange-alt fa-3x text-success"></i>
+                    <h2 class="h5 mt-4">Shipping & Return</h2>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 pb-5">
+                <div class="h-100 py-5 services-icon-wap shadow text-center">
+                    <i class="fa fa-percent fa-3x text-success"></i>
+                    <h2 class="h5 mt-4">Promotion</h2>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 pb-5">
+                <div class="h-100 py-5 services-icon-wap shadow text-center">
+                    <i class="fa fa-user fa-3x text-success"></i>
+                    <h2 class="h5 mt-4">24 Hours Service</h2>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
+
 </html>
