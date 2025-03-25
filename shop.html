@@ -534,9 +534,18 @@ https://templatemo.com/tm-559-zay-shop
 <!-- End Brands -->
 
 <!-- Add some animations and hover effects -->
+<!-- Add some animations and hover effects -->
 <style>
+    .brand-item {
+        display: block;
+        overflow: hidden; /* Ensure no borders or outlines show */
+    }
+
     .brand-item img {
         transition: transform 0.4s ease-in-out, filter 0.3s ease;
+        background-color: transparent; /* Ensure background is transparent */
+        border: none; /* Make sure no border is applied */
+        outline: none; /* Remove any outline on hover */
     }
     
     .brand-item:hover img {
@@ -595,6 +604,7 @@ https://templatemo.com/tm-559-zay-shop
     /* Add slight shadow to brand images */
     .brand-img {
         box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+        background-color: transparent; /* Ensure background is transparent */
     }
 </style>
 
