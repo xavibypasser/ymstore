@@ -64,9 +64,6 @@ https://templatemo.com/tm-559-zay-shop
                         <li class="nav-item">
                             <a class="nav-link" href="shop.html">Shop</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
-                        </li>
                     </ul>
                 </div>
                 <div class="navbar align-self-center d-flex">
@@ -175,88 +172,260 @@ https://templatemo.com/tm-559-zay-shop
     </section>
     <!-- End Section -->
 
+    <style>
+        /* Styling the whole section */
+        section {
+            padding: 50px 0;
+            background: linear-gradient(45deg, #ff6b81, #ff8a00); /* Gradient background */
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 20px; /* Round corners for the whole section */
+            animation: fadeIn 1s ease-out;
+        }
+    
+        /* Text styling for the title and description */
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: bold;
+            color: #fff;
+            font-size: 3rem;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+    
+        p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.1rem;
+            color: #fff;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+    
+        /* Keyframe for fading in the section */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    
+        /* Container for carousel (brand images) */
+        .tempaltemo-carousel {
+            position: relative;
+        }
+    
+        /* Carousel item container */
+        .brand-item {
+            display: block;
+            overflow: hidden;
+            border-radius: 20px; /* Round corners for the image containers */
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+            position: relative;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+        }
+    
+        /* Brand images styling */
+        .brand-item img {
+            transition: transform 0.4s ease-in-out, filter 0.3s ease;
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            filter: brightness(0.9); /* Slightly darken image */
+            transform: scale(1);
+        }
+    
+        .brand-item:hover img {
+            transform: scale(1.1); /* Slight zoom on hover */
+            filter: brightness(1.2); /* Brighten the image on hover */
+        }
+    
+        /* Hide text by default */
+        .brand-item .text {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%); /* Center the text */
+            padding: 5px 15px; /* Add some padding around the text */
+            background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+            color: #fff;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-radius: 10px;
+            opacity: 0;
+            visibility: hidden; /* Hide text initially */
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            display: inline-block; /* Ensure the text width adjusts to the content */
+        }
+    
+        /* Show text when hovering over the brand item */
+        .brand-item:hover .text {
+            opacity: 1;
+            visibility: visible; /* Make text visible */
+        }
+    
+        /* Carousel control buttons (left and right) */
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+            border-radius: 50%;
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+        }
+    
+        .carousel-control-prev-icon:hover,
+        .carousel-control-next-icon:hover {
+            transform: scale(1.3);
+            background-color: rgba(255, 255, 255, 0.8); /* Slightly brighter on hover */
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+        }
+    
+        /* Carousel controls styling */
+        .carousel-control-prev,
+        .carousel-control-next {
+            position: absolute;
+            top: 50%;
+            z-index: 2;
+            font-size: 2rem;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 12px;
+            border-radius: 50%;
+            transform: translateY(-50%);
+            transition: background-color 0.3s ease, transform 0.4s ease;
+        }
+    
+        .carousel-control-prev:hover,
+        .carousel-control-next:hover {
+            background-color: rgba(0, 0, 0, 0.5);
+            transform: translateY(-50%) scale(1.2);
+        }
+    
+        /* Wrapping the carousel in a box with some padding and shadows */
+        .carousel-inner {
+            position: relative;
+        }
+    
+        /* Styling each carousel item */
+        .carousel-item {
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth sliding transition */
+        }
+    
+        .carousel-item.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    
+        /* Small margin for better spacing between items */
+        .carousel-item .col-3 {
+            padding: 0 10px;
+        }
+    
+        /* Hover effect on the text description of the brand */
+        .brand-item:hover {
+            box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.25); /* Darker shadow on hover */
+            transform: translateY(-5px);
+        }
+    
+        .brand-item .brand-img {
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+    
     <!-- Start Brands -->
-    <section class="bg-light py-5">
+    <section class="py-5">
         <div class="container my-4">
             <div class="row text-center py-3">
                 <div class="col-lg-6 m-auto">
                     <h1 class="h1">Our Brands</h1>
                     <p>
-                        Explore our curated collection of premium brands, handpicked for their quality and innovation. From the best in cannabis to top-tier products, we bring you the brands you can trust. Shop with us and discover why these brands are favorites among enthusiasts.
+                        Explore our curated collection of premium brands, handpicked for their quality and innovation.
                     </p>
                 </div>
                 <div class="col-lg-9 m-auto tempaltemo-carousel">
                     <div class="row d-flex flex-row">
-                        <!--Controls-->
+                        <!-- Controls -->
                         <div class="col-1 align-self-center">
                             <a class="h1" href="#templatemo-slide-brand" role="button" data-bs-slide="prev">
                                 <i class="text-light fas fa-chevron-left"></i>
                             </a>
                         </div>
-                        <!--End Controls-->
-
-                        <!--Carousel Wrapper-->
+    
+                        <!-- Carousel Wrapper -->
                         <div class="col">
                             <div class="carousel slide carousel-multi-item pt-2 pt-md-0" id="templatemo-slide-brand" data-bs-ride="carousel">
-                                <!--Slides-->
+                                <!-- Slides -->
                                 <div class="carousel-inner product-links-wap" role="listbox">
-
-                                    <!--First slide-->
+                                    <!-- First slide -->
                                     <div class="carousel-item active">
                                         <div class="row">
-                                            <div class="col-3 p-md-5">
+                                            <div class="col-3 p-md-5 brand-item">
                                                 <a href="#"><img class="img-fluid brand-img" src="assets/img/ace.png" alt="Brand Logo"></a>
+                                                <div class="text">Ace</div>
                                             </div>
-                                            <div class="col-3 p-md-5">
+                                            <div class="col-3 p-md-5 brand-item">
                                                 <a href="#"><img class="img-fluid brand-img" src="assets/img/muhamed.png" alt="Brand Logo"></a>
+                                                <div class="text">Muhamed</div>
                                             </div>
-                                            <div class="col-3 p-md-5">
+                                            <div class="col-3 p-md-5 brand-item">
                                                 <a href="#"><img class="img-fluid brand-img" src="assets/img/GEEK-BAR-Logo.png" alt="Brand Logo"></a>
+                                                <div class="text">Geek Bar</div>
                                             </div>
-                                            <div class="col-3 p-md-5">
+                                            <div class="col-3 p-md-5 brand-item">
                                                 <a href="#"><img class="img-fluid brand-img" src="assets/img/malibu.avif" alt="Brand Logo"></a>
+                                                <div class="text">Malibu</div>
                                             </div>
                                         </div>
                                     </div>
-                                    <!--End First slide-->
-
-                                    <!--Second slide-->
+                                    <!-- End First slide -->
+                                    <!-- Second slide -->
                                     <div class="carousel-item">
                                         <div class="row">
-                                            <div class="col-3 p-md-5">
+                                            <div class="col-3 p-md-5 brand-item">
                                                 <a href="#"><img class="img-fluid brand-img" src="assets/img/luigi.png" alt="Brand Logo"></a>
+                                                <div class="text">Luigi</div>
                                             </div>
-                                            <div class="col-3 p-md-5">
+                                            <div class="col-3 p-md-5 brand-item">
                                                 <a href="#"><img class="img-fluid brand-img" src="assets/img/clean.png" alt="Brand Logo"></a>
+                                                <div class="text">Clean</div>
                                             </div>
-                                            <div class="col-3 p-md-5">
+                                            <div class="col-3 p-md-5 brand-item">
                                                 <a href="#"><img class="img-fluid brand-img" src="assets/img/waxx.png" alt="Brand Logo"></a>
+                                                <div class="text">Waxx</div>
                                             </div>
-                                            <div class="col-3 p-md-5">
+                                            <div class="col-3 p-md-5 brand-item">
                                                 <a href="#"><img class="img-fluid brand-img" src="assets/img/good_logo_400x.webp" alt="Brand Logo"></a>
+                                                <div class="text">Good</div>
                                             </div>
                                         </div>
                                     </div>
-                                    <!--End Second slide-->
+                                    <!-- End Second slide -->
                                 </div>
-                                <!--End Slides-->
+                                <!-- End Slides -->
                             </div>
                         </div>
-                        <!--End Carousel Wrapper-->
-
-                        <!--Controls-->
+                        <!-- End Carousel Wrapper -->
+    
+                        <!-- Controls -->
                         <div class="col-1 align-self-center">
                             <a class="h1" href="#templatemo-slide-brand" role="button" data-bs-slide="next">
                                 <i class="text-light fas fa-chevron-right"></i>
                             </a>
                         </div>
-                        <!--End Controls-->
+                        <!-- End Controls -->
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!--End Brands-->
+    <!-- End Brands -->
 
     <!-- Start Script -->
     <script src="assets/js/jquery-1.11.0.min.js"></script>
