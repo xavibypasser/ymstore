@@ -490,7 +490,7 @@ https://templatemo.com/tm-559-zay-shop
     
         /* Brand images styling */
         .brand-item img {
-            transition: transform 0.4s ease-in-out, filter 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.4s ease-in-out, filter 0.3s ease;
             width: 100%;
             height: auto;
             border-radius: 20px;
@@ -503,7 +503,40 @@ https://templatemo.com/tm-559-zay-shop
         .brand-item:hover img {
             transform: scale(1.1); /* Slight zoom on hover */
             filter: brightness(1.2); /* Brighten the image on hover */
-            box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.6); /* Glowing effect */
+        }
+    
+        /* Carousel control buttons (left and right) */
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+            border-radius: 50%;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+    
+        .carousel-control-prev-icon:hover,
+        .carousel-control-next-icon:hover {
+            transform: scale(1.2);
+            background-color: rgba(255, 255, 255, 0.8); /* Slightly brighter on hover */
+        }
+    
+        /* Carousel controls styling */
+        .carousel-control-prev,
+        .carousel-control-next {
+            position: absolute;
+            top: 50%;
+            z-index: 2;
+            font-size: 2rem;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            border-radius: 50%;
+            transform: translateY(-50%);
+            transition: background-color 0.3s ease;
+        }
+    
+        .carousel-control-prev:hover,
+        .carousel-control-next:hover {
+            background-color: rgba(0, 0, 0, 0.5);
         }
     
         /* Wrapping the carousel in a box with some padding and shadows */
@@ -558,6 +591,7 @@ https://templatemo.com/tm-559-zay-shop
         .brand-item:hover .text {
             background-color: rgba(0, 0, 0, 0.6); /* Darker background on hover */
         }
+    
     </style>
     
     <!-- Start Brands -->
@@ -572,6 +606,13 @@ https://templatemo.com/tm-559-zay-shop
                 </div>
                 <div class="col-lg-9 m-auto tempaltemo-carousel">
                     <div class="row d-flex flex-row">
+                        <!-- Controls -->
+                        <div class="col-1 align-self-center">
+                            <a class="h1" href="#templatemo-slide-brand" role="button" data-bs-slide="prev">
+                                <i class="text-light fas fa-chevron-left"></i>
+                            </a>
+                        </div>
+    
                         <!-- Carousel Wrapper -->
                         <div class="col">
                             <div class="carousel slide carousel-multi-item pt-2 pt-md-0" id="templatemo-slide-brand" data-bs-ride="carousel">
@@ -626,13 +667,20 @@ https://templatemo.com/tm-559-zay-shop
                             </div>
                         </div>
                         <!-- End Carousel Wrapper -->
+    
+                        <!-- Controls -->
+                        <div class="col-1 align-self-center">
+                            <a class="h1" href="#templatemo-slide-brand" role="button" data-bs-slide="next">
+                                <i class="text-light fas fa-chevron-right"></i>
+                            </a>
+                        </div>
+                        <!-- End Controls -->
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- End Brands -->
-    
+    <!-- End Brands -->      
       
          
 <!-- Add Bootstrap and Font Awesome dependencies -->
