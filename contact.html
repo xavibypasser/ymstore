@@ -15,23 +15,7 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="assets/css/fontawesome.min.css">
-
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
 </head>
-
-<!-- Start Tawk.to Live Chat -->
-<script type="text/javascript">
-    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-    (function () {
-        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-        s1.async = true;
-        s1.src = 'https://embed.tawk.to/67e2e5249418aa1911a01afb/default';
-        s1.charset = 'UTF-8';
-        s1.setAttribute('crossorigin', '*');
-        s0.parentNode.insertBefore(s1, s0);
-    })();
-</script>
-<!-- End Tawk.to Live Chat -->
 
 <body>
     <!-- Header -->
@@ -48,7 +32,7 @@
                         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="navbar align-self-center d-flex">
@@ -67,37 +51,82 @@
             </div>
         </div>
     </nav>
-    <!-- Close Header -->
+    <!-- End Header -->
 
-    <!-- Start Content Page -->
-    <div class="container-fluid bg-light py-5">
-        <div class="col-md-6 m-auto text-center">
-            <h1 class="h1">Contact Us</h1>
-            <p>Proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet.</p>
+    <!-- Contact Section -->
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Contact Us</h2>
+                <p>Have a question? Get in touch and we'll respond as soon as possible.</p>
+                <form>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" rows="4" placeholder="Your message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success">Send Message</button>
+                </form>
+            </div>
+
+            <div class="col-md-6">
+                <h2>Visit Us</h2>
+                <p><i class="fa fa-map-marker text-success"></i> 123 Flower Street, City, Country</p>
+                <p><i class="fa fa-phone text-success"></i> +1 234 567 890</p>
+                <p><i class="fa fa-envelope text-success"></i> support@ymflowers.com</p>
+
+                <!-- Tawk.to Chat Embed -->
+                <h3 class="mt-4">Live Chat</h3>
+                <div id="tawkChatContainer" class="border rounded p-3 bg-light" style="height: 400px;">
+                    <p>Loading live chat...</p>
+                </div>
+            </div>
         </div>
     </div>
+    <!-- End Contact Section -->
 
-<!-- Start Tawk.to Live Chat -->
-<script type="text/javascript">
-    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-    (function () {
-        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-        s1.async = true;
-        s1.src = 'https://embed.tawk.to/67e2e5249418aa1911a01afb/default';
-        s1.charset = 'UTF-8';
-        s1.setAttribute('crossorigin', '*');
-        s0.parentNode.insertBefore(s1, s0);
-    })();
-</script>
-<!-- End Tawk.to Live Chat -->
+    <!-- Tawk.to Live Chat Script -->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/67e2e5249418aa1911a01afb/default';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
 
-    <!-- Start Script -->
+        // Embed Tawk.to inside the chat div
+        Tawk_API.onLoad = function () {
+            var iframe = document.querySelector("iframe");
+            if (iframe) {
+                document.getElementById("tawkChatContainer").innerHTML = "";
+                document.getElementById("tawkChatContainer").appendChild(iframe);
+            }
+        };
+    </script>
+    <!-- End Tawk.to Live Chat Script -->
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p class="mb-0">&copy; 2025 YM Flowers. All Rights Reserved.</p>
+    </footer>
+    <!-- End Footer -->
+
+    <!-- Scripts -->
     <script src="assets/js/jquery-1.11.0.min.js"></script>
     <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/templatemo.js"></script>
     <script src="assets/js/custom.js"></script>
-    <!-- End Script -->
 </body>
 
 </html>
