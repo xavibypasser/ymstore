@@ -2,3 +2,24 @@
     color: #ff8122 !important;
   }
   
+  .card-img-overlay {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 0;
+  }
+  
+  .card-img-overlay ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .card-img-overlay ul li {
+    margin-bottom: 10px; /* Adjust as needed for spacing between buttons */
+  }
+  
