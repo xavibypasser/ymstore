@@ -138,16 +138,16 @@ https://templatemo.com/tm-559-zay-shop
     </script>
     <!-- Ena Map -->
 
- <!-- Start Contact -->
+ <!-- Start Chat -->
 <div class="container py-5">
     <div class="row py-5">
         <div class="col-md-9 m-auto">
             <h2>Chat with the Owner – No Login Needed!</h2>
-            <p>Have questions or need recommendations? Chat with us live, anonymously! Just enter your message, and we’ll respond right away.</p>
+            <p>Got questions? Reach out and get live assistance! We’re here to help, no login required – just send us a message and we’ll reply in real-time.</p>
             
-            <!-- Live Chat Box -->
+            <!-- Chat Box -->
             <div class="chat-box border p-3" style="height: 400px; overflow-y: auto;">
-                <div class="messages">
+                <div class="messages" id="messageArea">
                     <!-- Chat messages will appear here -->
                 </div>
                 <textarea class="form-control mt-3" id="chatMessage" placeholder="Type your message..." rows="4"></textarea>
@@ -158,40 +158,61 @@ https://templatemo.com/tm-559-zay-shop
         </div>
     </div>
 </div>
-<!-- End Contact -->
+<!-- End Chat -->
 
 <script>
-    // This is a basic implementation. You may want to use a service like Tidio, LiveChat, or custom WebSocket for real-time interaction.
+    // This is a basic implementation for demo purposes.
+    let messagesContainer = document.getElementById('messageArea');
+
     function sendMessage() {
         const messageInput = document.getElementById('chatMessage');
         const message = messageInput.value.trim();
         
         if (message) {
-            // Append the message to the chat window
-            const messageContainer = document.createElement('div');
-            messageContainer.classList.add('message', 'my-2');
-            messageContainer.textContent = `You: ${message}`;
-            document.querySelector('.messages').appendChild(messageContainer);
+            // Append the message to the chat window (user's message)
+            const userMessageContainer = document.createElement('div');
+            userMessageContainer.classList.add('message', 'my-2');
+            userMessageContainer.textContent = `You: ${message}`;
+            messagesContainer.appendChild(userMessageContainer);
             
             // Clear the input field
             messageInput.value = '';
             
             // Scroll to the bottom of the chat
-            document.querySelector('.chat-box').scrollTop = document.querySelector('.chat-box').scrollHeight;
-            
-            // Simulate a reply from you
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+            // Simulate a reply from the store owner after 1 second
             setTimeout(() => {
-                const replyContainer = document.createElement('div');
-                replyContainer.classList.add('message', 'my-2', 'text-success');
-                replyContainer.textContent = `Owner: Thank you for reaching out! How can I help you?`;
-                document.querySelector('.messages').appendChild(replyContainer);
+                const replyMessageContainer = document.createElement('div');
+                replyMessageContainer.classList.add('message', 'my-2', 'text-success');
+                replyMessageContainer.textContent = `Owner: Thanks for reaching out! How can I assist you today?`;
+                messagesContainer.appendChild(replyMessageContainer);
                 
                 // Scroll to the bottom again
-                document.querySelector('.chat-box').scrollTop = document.querySelector('.chat-box').scrollHeight;
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
             }, 1000);
         }
     }
 </script>
+
+<style>
+    .chat-box {
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .message {
+        padding: 8px;
+        border-radius: 5px;
+        margin-bottom: 8px;
+    }
+
+    .text-success {
+        color: #28a745;
+        font-weight: bold;
+    }
+</style>
 
     <!-- Start Script -->
     <script src="assets/js/jquery-1.11.0.min.js"></script>
