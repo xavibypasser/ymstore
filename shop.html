@@ -436,20 +436,16 @@ https://templatemo.com/tm-559-zay-shop
     <!-- End Content -->
 
     <style>
-        /* Container styling for the section */
+        /* Styling the whole section */
         section {
             padding: 50px 0;
             background: linear-gradient(45deg, #ff6b81, #ff8a00); /* Gradient background */
             box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-            border-radius: 20px;
-            overflow: hidden; /* Hide anything that overflows the section */
-            position: relative;
-            width: 100%; /* Full width to fit images */
-            max-width: 1200px; /* Constrain the max width */
-            margin: 0 auto; /* Center the container */
+            border-radius: 20px; /* Round corners for the whole section */
+            animation: fadeIn 1s ease-out;
         }
     
-        /* Text styling */
+        /* Text styling for the title and description */
         h1 {
             font-family: 'Poppins', sans-serif;
             font-weight: bold;
@@ -468,67 +464,103 @@ https://templatemo.com/tm-559-zay-shop
             margin-bottom: 30px;
         }
     
-        /* Container for brand items */
-        .tempaltemo-carousel {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 50px; /* Increased space between images */
-        }
-    
-        /* Styling for each brand item */
-        .brand-item {
-            position: absolute;
-            width: 120px; /* Adjusted size for better visibility */
-            height: 120px;
-            opacity: 0.8;
-            transition: opacity 0.3s ease-in-out, transform 0.5s ease-out;
-            cursor: pointer;
-            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-            border-radius: 15px;
-        }
-    
-        /* Brand image styling */
-        .brand-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            border-radius: 15px;
-            filter: brightness(0.9);
-        }
-    
-        .brand-item:hover {
-            opacity: 1; /* Full opacity on hover */
-            transform: scale(1.1); /* Slight zoom effect */
-        }
-    
-        /* Animations to make the brand images float and move */
-        @keyframes floatAndMove {
+        /* Keyframe for fading in the section */
+        @keyframes fadeIn {
             0% {
-                transform: translateX(0) translateY(0) scale(1) rotate(0deg);
-            }
-            25% {
-                transform: translateX(30px) translateY(10px) scale(1.05) rotate(5deg);
-            }
-            50% {
-                transform: translateX(-20px) translateY(20px) scale(1.1) rotate(-5deg);
-            }
-            75% {
-                transform: translateX(10px) translateY(-10px) scale(1.05) rotate(2deg);
+                opacity: 0;
             }
             100% {
-                transform: translateX(0) translateY(0) scale(1) rotate(0deg);
+                opacity: 1;
             }
         }
     
-        /* Apply the animation to each brand item */
+        /* Container for carousel (brand images) */
+        .tempaltemo-carousel {
+            position: relative;
+        }
+    
+        /* Carousel item container */
         .brand-item {
-            animation: floatAndMove 6s infinite ease-in-out;
+            display: block;
+            overflow: hidden;
+            border-radius: 20px; /* Round corners for the image containers */
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+        }
+    
+        /* Brand images styling */
+        .brand-item img {
+            transition: transform 0.4s ease-in-out, filter 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            filter: brightness(0.9); /* Slightly darken image */
+            transform: scale(1);
+        }
+    
+        .brand-item:hover img {
+            transform: scale(1.1); /* Slight zoom on hover */
+            filter: brightness(1.2); /* Brighten the image on hover */
+            box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.6); /* Glowing effect */
+        }
+    
+        /* Wrapping the carousel in a box with some padding and shadows */
+        .carousel-inner {
+            position: relative;
+        }
+    
+        /* Styling each carousel item */
+        .carousel-item {
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.5s ease;
+        }
+    
+        .carousel-item.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    
+        /* Small margin for better spacing between items */
+        .carousel-item .col-3 {
+            padding: 0 10px;
+        }
+    
+        /* Hover effect on the text description of the brand */
+        .brand-item:hover {
+            box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.25); /* Darker shadow on hover */
+            transform: translateY(-5px);
+        }
+    
+        .brand-item .brand-img {
+            position: relative;
+            overflow: hidden;
+        }
+    
+        /* Add some text under the images */
+        .brand-item .text {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+            color: #fff;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+        }
+    
+        .brand-item:hover .text {
+            background-color: rgba(0, 0, 0, 0.6); /* Darker background on hover */
         }
     </style>
     
-    <!-- Start Brands Section -->
+    <!-- Start Brands -->
     <section class="py-5">
         <div class="container my-4">
             <div class="row text-center py-3">
@@ -539,43 +571,68 @@ https://templatemo.com/tm-559-zay-shop
                     </p>
                 </div>
                 <div class="col-lg-9 m-auto tempaltemo-carousel">
-                    <!-- Brand 1 -->
-                    <div class="brand-item" style="top: 30%; left: 5%;">
-                        <a href="#"><img class="img-fluid brand-img" src="assets/img/ace.png" alt="Brand Logo"></a>
-                    </div>
-                    <!-- Brand 2 -->
-                    <div class="brand-item" style="top: 25%; left: 30%;">
-                        <a href="#"><img class="img-fluid brand-img" src="assets/img/muhamed.png" alt="Brand Logo"></a>
-                    </div>
-                    <!-- Brand 3 -->
-                    <div class="brand-item" style="top: 20%; left: 55%;">
-                        <a href="#"><img class="img-fluid brand-img" src="assets/img/GEEK-BAR-Logo.png" alt="Brand Logo"></a>
-                    </div>
-                    <!-- Brand 4 -->
-                    <div class="brand-item" style="top: 15%; left: 80%;">
-                        <a href="#"><img class="img-fluid brand-img" src="assets/img/malibu.avif" alt="Brand Logo"></a>
-                    </div>
-                    <!-- Brand 5 -->
-                    <div class="brand-item" style="top: 40%; left: 10%;">
-                        <a href="#"><img class="img-fluid brand-img" src="assets/img/luigi.png" alt="Brand Logo"></a>
-                    </div>
-                    <!-- Brand 6 -->
-                    <div class="brand-item" style="top: 45%; left: 35%;">
-                        <a href="#"><img class="img-fluid brand-img" src="assets/img/clean.png" alt="Brand Logo"></a>
-                    </div>
-                    <!-- Brand 7 -->
-                    <div class="brand-item" style="top: 50%; left: 60%;">
-                        <a href="#"><img class="img-fluid brand-img" src="assets/img/waxx.png" alt="Brand Logo"></a>
-                    </div>
-                    <!-- Brand 8 -->
-                    <div class="brand-item" style="top: 55%; left: 85%;">
-                        <a href="#"><img class="img-fluid brand-img" src="assets/img/good_logo_400x.webp" alt="Brand Logo"></a>
+                    <div class="row d-flex flex-row">
+                        <!-- Carousel Wrapper -->
+                        <div class="col">
+                            <div class="carousel slide carousel-multi-item pt-2 pt-md-0" id="templatemo-slide-brand" data-bs-ride="carousel">
+                                <!-- Slides -->
+                                <div class="carousel-inner product-links-wap" role="listbox">
+                                    <!-- First slide -->
+                                    <div class="carousel-item active">
+                                        <div class="row">
+                                            <div class="col-3 p-md-5 brand-item">
+                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/ace.png" alt="Brand Logo"></a>
+                                                <div class="text">Ace</div>
+                                            </div>
+                                            <div class="col-3 p-md-5 brand-item">
+                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/muhamed.png" alt="Brand Logo"></a>
+                                                <div class="text">Muhamed</div>
+                                            </div>
+                                            <div class="col-3 p-md-5 brand-item">
+                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/GEEK-BAR-Logo.png" alt="Brand Logo"></a>
+                                                <div class="text">Geek Bar</div>
+                                            </div>
+                                            <div class="col-3 p-md-5 brand-item">
+                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/malibu.avif" alt="Brand Logo"></a>
+                                                <div class="text">Malibu</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End First slide -->
+                                    <!-- Second slide -->
+                                    <div class="carousel-item">
+                                        <div class="row">
+                                            <div class="col-3 p-md-5 brand-item">
+                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/luigi.png" alt="Brand Logo"></a>
+                                                <div class="text">Luigi</div>
+                                            </div>
+                                            <div class="col-3 p-md-5 brand-item">
+                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/clean.png" alt="Brand Logo"></a>
+                                                <div class="text">Clean</div>
+                                            </div>
+                                            <div class="col-3 p-md-5 brand-item">
+                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/waxx.png" alt="Brand Logo"></a>
+                                                <div class="text">Waxx</div>
+                                            </div>
+                                            <div class="col-3 p-md-5 brand-item">
+                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/good_logo_400x.webp" alt="Brand Logo"></a>
+                                                <div class="text">Good</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Second slide -->
+                                </div>
+                                <!-- End Slides -->
+                            </div>
+                        </div>
+                        <!-- End Carousel Wrapper -->
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- End Brands Section -->    
+    <!-- End Brands -->
+    
       
          
 <!-- Add Bootstrap and Font Awesome dependencies -->
