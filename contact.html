@@ -15,6 +15,19 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    
+    <style>
+        #tawkChatContainer {
+            width: 100%;
+            max-width: 800px;
+            height: 600px;
+            margin: 50px auto;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #f8f9fa;
+        }
+    </style>
 </head>
 
 <body>
@@ -35,62 +48,21 @@
                         <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                <div class="navbar align-self-center d-flex">
-                    <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
-                        <i class="fa fa-fw fa-search text-dark mr-2"></i>
-                    </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
-                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
-                    </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
-                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>
-                    </a>
-                </div>
             </div>
         </div>
     </nav>
     <!-- End Header -->
 
-    <!-- Contact Section -->
-    <div class="container py-5">
-        <div class="row">
-            <div class="col-md-6">
-                <h2>Contact Us</h2>
-                <p>Have a question? Get in touch and we'll respond as soon as possible.</p>
-                <form>
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Your Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Enter your name">
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email Address</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter your email">
-                    </div>
-                    <div class="mb-3">
-                        <label for="message" class="form-label">Message</label>
-                        <textarea class="form-control" id="message" rows="4" placeholder="Your message"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-success">Send Message</button>
-                </form>
-            </div>
+    <!-- Chat Section -->
+    <div class="container text-center py-5">
+        <h2>Live Chat Support</h2>
+        <p>Our team is ready to assist you. Start a conversation below.</p>
 
-            <div class="col-md-6">
-                <h2>Visit Us</h2>
-                <p><i class="fa fa-map-marker text-success"></i> 123 Flower Street, City, Country</p>
-                <p><i class="fa fa-phone text-success"></i> +1 234 567 890</p>
-                <p><i class="fa fa-envelope text-success"></i> support@ymflowers.com</p>
-
-                <!-- Tawk.to Chat Embed -->
-                <h3 class="mt-4">Live Chat</h3>
-                <div id="tawkChatContainer" class="border rounded p-3 bg-light" style="height: 400px;">
-                    <p>Loading live chat...</p>
-                </div>
-            </div>
+        <div id="tawkChatContainer">
+            <p>Loading chat...</p>
         </div>
     </div>
-    <!-- End Contact Section -->
+    <!-- End Chat Section -->
 
     <!-- Tawk.to Live Chat Script -->
     <script type="text/javascript">
